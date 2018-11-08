@@ -1,0 +1,23 @@
+<div>
+  <div class="title">Interactivity table</div>
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="colorName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Color Name
+      </mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        {{user.colorName}}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="hexValue">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Hex Value
+        </mat-header-cell>
+        <mat-cell *matCellDef="let user" [ngStyle]="{'background-color': user.hexValue}">
+          {{user.hexValue}}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
+      <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+  </mat-table>
+</div>
